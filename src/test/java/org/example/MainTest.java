@@ -6,15 +6,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
     @Test
-    public void checknametrue(){
+    public void checknametrue() {
         String name = "Joh";
-        assertTrue(Main.isvalidfirstname(name));
+        assertTrue(Main.isvalidname(name));
 
     }
+
     @Test
-    public void checknamefalse(){
-        String name ="Sahil";
-        assertFalse(Main.isvalidfirstname(name));
+    public void checknamefalse() {
+        String name = "Sahil";
+        assertFalse(Main.isvalidname(name));
     }
 
 }
