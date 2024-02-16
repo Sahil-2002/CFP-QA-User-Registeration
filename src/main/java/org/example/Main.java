@@ -65,7 +65,7 @@ public class Main {
         return Pattern.matches(regex, number);
     }
     public static boolean validpassword(String password){
-        String regex = "^(?=.*[A-Z]).(?=.*[0-9]).{8,}$";
+        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-z0-9]).{8,}$";
         return Pattern.matches(regex,password);
     }
 
