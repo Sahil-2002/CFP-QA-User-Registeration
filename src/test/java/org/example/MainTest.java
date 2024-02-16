@@ -31,7 +31,7 @@ class MainTest {
     }
 @Test
     public void checkpassword(){
-        assertTrue(Main.validpassword("sahilkhandekar"));
+        assertTrue(Main.validpassword("Sahilkhandekar"));
         assertFalse(Main.validpassword("Sahil"));
 }
 

@@ -46,7 +46,7 @@ public class Main {
             System.out.println("Password successfully registered ");
         }
         else {
-            System.out.println("Password is less than 8 characters ");
+            System.out.println("Password is not following standard rules  ");
         }
 
     }
@@ -65,7 +65,7 @@ public class Main {
         return Pattern.matches(regex, number);
     }
     public static boolean validpassword(String password){
-        String regex = "^.{8,}$";
+        String regex = "^(?=.*[A-Z]).{8,}$";
         return Pattern.matches(regex,password);
     }
 
