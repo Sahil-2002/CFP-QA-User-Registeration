@@ -21,7 +21,13 @@ class MainTest {
     public void checkemail(){
         assertTrue(Main.validemail("Sahila.khandekar@gmail.com"));
         assertTrue(Main.validemail("abc.xyz@bl.co.in"));
+        assertFalse(Main.validemail("sahil@gmail"));
 
+    }
+    @Test
+    public void checknumber(){
+        assertTrue(Main.validnumber("91 9082164605"));
+        assertFalse(Main.validnumber("9082164605"));
     }
 
 

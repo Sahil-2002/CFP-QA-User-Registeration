@@ -14,21 +14,31 @@ public class Main {
         String Lastname = sc.next();
         System.out.println("Enter Email id : ");
         String email = sc.next();
+        sc.nextLine();
+        System.out.println("Enter phone number along with country code ");
+        String number = sc.nextLine();
+
         if (isvalidname(Firstname)) {
-            System.out.println("First name is correct " + Firstname);
+            System.out.println(Firstname+" successfully registered ");
         } else {
             System.out.println("First name is invalid ");
         }
         if (isvalidname(Lastname)) {
-            System.out.println("Last name is correct " + Lastname);
+            System.out.println(Lastname+ " successfully registered ");
         } else {
             System.out.println("Last name is invalid ");
         }
         if(validemail(email)){
-            System.out.println("Email is valid ");
+            System.out.println(email+ " Email id registered  ");
         }
         else {
             System.out.println("Email is invalid ");
+        }
+        if(validnumber(number)){
+            System.out.println(number+"  successfully registered ");
+        }
+        else {
+            System.out.println("Enter phone number in proper format 10 digits number with country code ");
         }
 
     }
@@ -41,6 +51,10 @@ public class Main {
     public static boolean validemail(String email){
         String regex = "^[a-zA-Z0-9]+[/.]?[a-zA-z0-9]*[@][a-z]{2,5}[/.][a-z]{2,3}[/.]?[a-z]*$";
         return Pattern.matches(regex,email);
+    }
+    public static boolean validnumber(String number){
+        String regex = "^[0-9]{2} [0-9]{10}$";
+        return Pattern.matches(regex, number);
     }
 
 
