@@ -20,11 +20,15 @@ class MainTest {
 
     @Test
     public void checkemail() {
+        // valid email checking
         assertTrue(Main.validemail("abc@yahoo.com"));
         assertTrue(Main.validemail("abc.100@yahoo.com"));
         assertTrue(Main.validemail("abc@gmail.com.com"));
 
+        // invalid email checking
         assertFalse(Main.validemail("abc()*@gmail.com"));
+        assertFalse(Main.validemail("abc@abc@gmail.com"));
+        assertFalse(Main.validemail("abc@abc@gmail.com"));
 
     }
 
