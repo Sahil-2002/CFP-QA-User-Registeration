@@ -14,7 +14,7 @@ class MainTest {
 
     @Test
     public void checknamefalse() {
-        String name = "Sahil";
+        String name = "sahil";
         assertFalse(Main.isvalidname(name));
     }
 
