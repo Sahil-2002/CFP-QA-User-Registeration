@@ -17,5 +17,12 @@ class MainTest {
         String name = "Sahil";
         assertFalse(Main.isvalidname(name));
     }
+    @Test
+    public void checkemail(){
+        assertTrue(Main.validemail("Sahila.khandekar@gmail.com"));
+        assertTrue(Main.validemail("abc.xyz@bl.co.in"));
+
+    }
+
 
 }
