@@ -17,6 +17,8 @@ public class Main {
         sc.nextLine();
         System.out.println("Enter phone number along with country code ");
         String number = sc.nextLine();
+        System.out.println("enter the password ");
+        String password = sc.next();
 
         if (isvalidname(Firstname)) {
             System.out.println(Firstname+" successfully registered ");
@@ -40,6 +42,12 @@ public class Main {
         else {
             System.out.println("Enter phone number in proper format 10 digits number with country code ");
         }
+        if(validpassword(password)){
+            System.out.println("Password successfully registered ");
+        }
+        else {
+            System.out.println("Password is less than 8 characters ");
+        }
 
     }
 
@@ -55,6 +63,10 @@ public class Main {
     public static boolean validnumber(String number){
         String regex = "^[0-9]{2} [0-9]{10}$";
         return Pattern.matches(regex, number);
+    }
+    public static boolean validpassword(String password){
+        String regex = "^.{8,}$";
+        return Pattern.matches(regex,password);
     }
 
 

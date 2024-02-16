@@ -29,6 +29,10 @@ class MainTest {
         assertTrue(Main.validnumber("91 9082164605"));
         assertFalse(Main.validnumber("9082164605"));
     }
-
+@Test
+    public void checkpassword(){
+        assertTrue(Main.validpassword("sahilkhandekar"));
+        assertFalse(Main.validpassword("Sahil"));
+}
 
 }
