@@ -1,38 +1,39 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 public class Main {
 
 
     static class InvalidFirstnameException extends Exception {
-        InvalidFirstnameException(String Firstname) {
-            super(Firstname);
+        InvalidFirstnameException(String message) {
+            super(message);
         }
     }
 
     static class InvalidLastnameException extends Exception {
-        InvalidLastnameException(String Lastname) {
-            super(Lastname);
+        InvalidLastnameException(String message) {
+            super(message);
         }
     }
 
     static class InvalidemailException extends Exception {
-        InvalidemailException(String email) {
-            super(email);
+        InvalidemailException(String message) {
+            super(message);
         }
     }
 
     static class InvalidphoneException extends Exception {
-        InvalidphoneException(String phone) {
-            super(phone);
+        InvalidphoneException(String message) {
+            super(message);
         }
     }
 
     static class InvalidpasswordException extends Exception {
-        InvalidpasswordException(String password) {
-            super(password);
+        InvalidpasswordException(String message) {
+            super(message);
         }
     }
 
@@ -54,7 +55,9 @@ public class Main {
         String password = sc.next();
 
         try {
-            if (isvalidname(Firstname)) {
+            Predicate<String> pr = n -> n.matches("^[A-Z][a-z]{2,}$");
+            if (pr.test(Firstname)) {
+
                 System.out.println(Firstname + " (first name successfully registered ) ");
             } else {
 
@@ -64,8 +67,8 @@ public class Main {
             System.out.println(e.getMessage());
         }
         try {
-
-            if (isvalidname(Lastname)) {
+            Predicate<String> pr = n -> n.matches("^[A-Z][a-z]{2,}$");
+            if (pr.test(Lastname)) {
                 System.out.println(Lastname + " ( Last name successfully registered ) ");
             } else {
                 throw new InvalidLastnameException(Lastname + " is invalid ");
@@ -75,7 +78,8 @@ public class Main {
 
         }
         try {
-            if (validemail(email)) {
+            Predicate<String> pr = n -> n.matches("^[a-zA-Z0-9]+[/.]?[a-zA-z0-9]*[@][a-z]{2,5}[/.][a-z]{2,3}[/.]?[a-z]*$");
+            if (pr.test(email)) {
                 System.out.println(email + " (Email id registered ) ");
             } else {
                 throw new InvalidemailException(email + " is invalid ");
@@ -85,7 +89,8 @@ public class Main {
         }
 
         try {
-            if (validnumber(number)) {
+            Predicate<String> pr = n -> n.matches("^[0-9]{2} [0-9]{10}$");
+            if (pr.test(number)) {
                 System.out.println(number + " ( phone number successfully registered ) ");
             } else {
                 throw new InvalidphoneException(number + " is invalid");
@@ -95,7 +100,8 @@ public class Main {
         }
 
         try {
-            if (validpassword(password)) {
+            Predicate<String> pr = n -> n.matches("^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$");
+            if (pr.test(password)) {
                 System.out.println(password + "  successfully registered ");
             } else {
                 throw new InvalidpasswordException(password + " is invalid");
@@ -104,27 +110,6 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-    }
-
-    public static boolean isvalidname(String name) {
-        String regex = "^[A-Z][a-z]{2,}";
-        return Pattern.matches(regex, name);
-
-    }
-
-    public static boolean validemail(String email) {
-        String regex = "^[a-zA-Z0-9]+[/.]?[a-zA-z0-9]*[@][a-z]{2,5}[/.][a-z]{2,3}[/.]?[a-z]*$";
-        return Pattern.matches(regex, email);
-    }
-
-    public static boolean validnumber(String number) {
-        String regex = "^[0-9]{2} [0-9]{10}$";
-        return Pattern.matches(regex, number);
-    }
-
-    public static boolean validpassword(String password) {
-        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$";
-        return Pattern.matches(regex, password);
     }
 
 
